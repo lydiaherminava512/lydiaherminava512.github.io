@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lydia Hermina – Virtual Assistant Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f4f6fb;
+            color: #2d2d2d;
+            line-height: 1.6;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== HEADER / HERO ===== */
+        header {
+            background: linear-gradient(135deg, #1a2a4a 0%, #293f6b 100%);
+            color: #fff;
+            padding: 60px 0 50px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+        header .tagline {
+            font-size: 1.15rem;
+            opacity: 0.85;
+            margin-bottom: 20px;
+        }
+        header .badge-box {
+            display: inline-block;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 14px 28px;
+            max-width: 580px;
+            margin: 0 auto 20px;
+        }
+        header .badge-box p { font-size: 0.95rem; margin: 2px 0; }
+        header .badge-box strong { color: #f0c75e; }
+
+        /* Metrics row */
+        .metrics {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0 16px;
+        }
+        .metric {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 10px 22px;
+            min-width: 80px;
+            text-align: center;
+        }
+        .metric .num { font-size: 1.7rem; font-weight: 700; color: #f0c75e; }
+        .metric .lbl { font-size: 0.75rem; opacity: 0.8; }
+
+        header .quote {
+            font-style: italic;
+            opacity: 0.7;
+            font-size: 0.95rem;
+            margin: 10px 0 14px;
+        }
+        header .contact-strip {
+            font-size: 0.85rem;
+            opacity: 0.75;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            display: inline-block;
+        }
+        header .contact-strip a { color: #f0c75e; text-decoration: none; }
+        header .contact-strip a:hover { text-decoration: underline; }
+
+        /* ===== SECTIONS ===== */
+        section { padding: 40px 0; }
+        section:nth-child(even) { background: #fff; }
+        section:nth-child(odd) { background: #f4f6fb; }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #1a2a4a;
+            margin-bottom: 18px;
+            padding-bottom: 6px;
+            border-bottom: 3px solid #1a2a4a;
+            display: inline-block;
+        }
+        h3 {
+            font-size: 1.1rem;
+            color: #1a2a4a;
+            margin: 14px 0 6px;
+        }
+
+        /* Profile */
+        .profile-text { max-width: 800px; font-size: 0.95rem; color: #444; }
+
+        /* ===== EXPERTISE TABLE ===== */
+        .exp-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            margin: 10px 0;
+        }
+        .exp-table th {
+            background: #1a2a4a;
+            color: #fff;
+            padding: 8px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .exp-table td {
+            padding: 7px 12px;
+            border-bottom: 1px solid #e0e5ee;
+        }
+        .exp-table tr:nth-child(even) td { background: #f0f3fa; }
+        .exp-table td:first-child { font-weight: 600; width: 38%; }
+
+        /* ===== KEY RESULTS ===== */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+            margin: 10px 0;
+        }
+        .result-item {
+            background: #eef1f8;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border-left: 4px solid #1a2a4a;
+            font-size: 0.88rem;
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .job { margin-bottom: 22px; }
+        .job-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1a2a4a;
+        }
+        .job-sub {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 6px;
+        }
+        .job ul {
+            list-style: none;
+            padding-left: 6px;
+        }
+        .job ul li::before { content: "▸ "; color: #1a2a4a; font-weight: 700; }
+        .job ul li {
+            font-size: 0.88rem;
+            color: #444;
+            margin-bottom: 3px;
+            padding-left: 6px;
+        }
+
+        /* ===== SERVICES ===== */
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+        }
+        .svc-card {
+            background: #fff;
+            border: 1px solid #d0d8e8;
+            border-radius: 8px;
+            padding: 14px 16px;
+            transition: box-shadow 0.2s;
+        }
+        .svc-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
+        .svc-card h4 {
+            color: #1a2a4a;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e0e5ee;
+        }
+        .svc-card ul { list-style: none; }
+        .svc-card ul li {
+            font-size: 0.82rem;
+            color: #555;
+            padding: 2px 0 2px 12px;
+            position: relative;
+        }
+        .svc-card ul li::before { content: "–"; position: absolute; left: 0; color: #1a2a4a; }
+
+        /* ===== WHY ===== */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        .why-item {
+            background: #fff;
+            border-radius: 8px;
+            padding: 14px 16px;
+            border: 1px solid #e0e5ee;
+        }
+        .why-item h4 { color: #1a2a4a; font-size: 0.95rem; margin-bottom: 4px; }
+        .why-item p { font-size: 0.85rem; color: #555; }
+
+        /* ===== TESTIMONIALS ===== */
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        .testi-card {
+            background: #fff;
+            border: 1px solid #d0d8e8;
+            border-radius: 8px;
+            padding: 16px 18px;
+            position: relative;
+        }
+        .testi-card .stars { color: #e8a020; font-size: 1rem; letter-spacing: 2px; }
+        .testi-card .rating { font-size: 0.75rem; color: #1a2a4a; font-weight: 600; }
+        .testi-card .text {
+            font-style: italic;
+            font-size: 0.88rem;
+            color: #444;
+            margin: 8px 0;
+        }
+        .testi-card .source { font-size: 0.72rem; color: #999; }
+
+        /* ===== PRICING ===== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 10px 0;
+        }
+        .pricing-card {
+            background: #fff;
+            border: 1px solid #d0d8e8;
+            border-radius: 8px;
+            padding: 18px;
+            text-align: center;
+        }
+        .pricing-card h4 { color: #1a2a4a; font-size: 1rem; }
+        .pricing-card .amount {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #c0392b;
+            margin: 8px 0;
+        }
+        .pricing-card p { font-size: 0.82rem; color: #666; }
+
+        /* ===== CTA ===== */
+        .cta-box {
+            background: linear-gradient(135deg, #1a2a4a, #293f6b);
+            color: #fff;
+            border-radius: 10px;
+            padding: 28px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .cta-box h3 { color: #fff; font-size: 1.2rem; margin-bottom: 8px; }
+        .cta-box p { font-size: 0.9rem; opacity: 0.85; margin-bottom: 10px; }
+        .cta-box a { color: #f0c75e; text-decoration: none; font-weight: 600; }
+        .cta-box a:hover { text-decoration: underline; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #1a2a4a;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 18px 0;
+            font-size: 0.8rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .metric { min-width: 60px; padding: 8px 14px; }
+            .metric .num { font-size: 1.3rem; }
+            .exp-table td:first-child { width: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header>
+    <div class="container">
+        <h1>LYDIA HERMINA</h1>
+        <p class="tagline">Virtual Assistant &bull; Executive Support &bull; CRM Specialist</p>
+
+        <div class="badge-box">
+            <p><strong>YOUR OPERATIONAL PARTNER, NOT JUST ANOTHER VA</strong></p>
+            <p>20+ years experience &bull; 9+ years dedicated remote VA &bull; US &amp; global clients</p>
+            <p style="font-size:0.85rem;opacity:0.75;">HubSpot &bull; Zendesk &bull; Google Workspace &bull; MS Office &bull; Project Coordination</p>
+        </div>
+
+        <div class="metrics">
+            <div class="metric"><span class="num">9+</span><div class="lbl">Years Remote</div></div>
+            <div class="metric"><span class="num">20+</span><div class="lbl">Years Exp.</div></div>
+            <div class="metric"><span class="num">800+</span><div class="lbl">Tickets</div></div>
+            <div class="metric"><span class="num">700+</span><div class="lbl">Leads</div></div>
+        </div>
+
+        <p class="quote">&ldquo;Reliable, results-driven, and ready to support your business growth.&rdquo;</p>
+
+        <div class="contact-strip">
+            Available for Full-Time Remote &nbsp;|&nbsp;
+            <a href="mailto:lydiahermina.va@gmail.com">lydiahermina.va@gmail.com</a> &nbsp;|&nbsp;
+            <a href="https://linkedin.com/in/lydiamassie-9b4a2a136" target="_blank">linkedin.com/in/lydiamassie-9b4a2a136</a>
+        </div>
+    </div>
+</header>
+
+<!-- ===== PROFILE ===== -->
+<section>
+    <div class="container">
+        <h2>Professional Profile</h2>
+        <div class="profile-text">
+            <p>With over 20 years of professional experience spanning executive administration, customer relationship management, lead generation, and cross-border operations, I help businesses run more efficiently by taking operational burdens off their plate.</p>
+            <p style="margin-top:10px;">I spent 9 years working overseas in a multinational environment, managing contact center operations for the Indonesian market from a centralized hub in Malaysia. Since 2016, I have been a dedicated remote VA supporting clients across multiple industries, providing executive support, CRM administration, customer service, lead generation, and project coordination.</p>
+            <p style="margin-top:10px;">My clients value me for three things: proactive problem-solving, sharp attention to detail, and the ability to manage end-to-end operations without hand-holding.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CORE EXPERTISE ===== -->
+<section>
+    <div class="container">
+        <h2>Core Expertise</h2>
+        <table class="exp-table">
+            <thead><tr><th>Expertise Area</th><th>Details</th></tr></thead>
+            <tbody>
+                <tr><td>Executive &amp; Admin Support</td><td>Calendar &amp; email mgmt, travel coordination, meeting prep, document prep, data entry</td></tr>
+                <tr><td>CRM &amp; Customer Support</td><td>HubSpot &amp; Zendesk admin, ticketing, SLA compliance, customer onboarding, retention</td></tr>
+                <tr><td>Lead Generation &amp; Research</td><td>Market research, competitor analysis, prospect research, contact list building</td></tr>
+                <tr><td>Operations &amp; Project Mgmt</td><td>Project coordination, vendor mgmt, workflow optimization, cross-functional coordination</td></tr>
+                <tr><td>Social Media &amp; Digital</td><td>Content scheduling, community engagement, email marketing, social media mgmt</td></tr>
+                <tr><td>Tools Mastered</td><td>Google Workspace, MS Office, Slack, Zendesk, HubSpot CRM, Vantive, Active Directory</td></tr>
+            </tbody>
+        </table>
+
+        <h3 style="margin-top:22px;">Key Results at a Glance</h3>
+        <div class="results-grid">
+            <div class="result-item">Managed executive calendars &amp; communications for C-level professionals across global time zones</div>
+            <div class="result-item">Processed 800+ support tickets via Zendesk with consistent SLA compliance and high CSAT</div>
+            <div class="result-item">Generated 700+ qualified leads through targeted market research and prospect outreach</div>
+            <div class="result-item">Maintained HubSpot CRM databases ensuring 95%+ data accuracy for sales pipeline visibility</div>
+            <div class="result-item">Coordinated international contact center operations connecting Malaysian hub to Indonesian market</div>
+            <div class="result-item">Improved workflow efficiency through process documentation and cross-functional coordination</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section>
+    <div class="container">
+        <h2>Professional Experience</h2>
+
+        <div class="job">
+            <div class="job-title">Remote Virtual Assistant &amp; Customer Support Specialist</div>
+            <div class="job-sub">Self-Employed &bull; Global Clients &bull; Since 2016</div>
+            <ul>
+                <li>Provided end-to-end executive support: calendar management, inbox triage, meeting coordination, travel arrangements, and document preparation for C-level clients</li>
+                <li>Managed HubSpot CRM pipelines for lead tracking and customer communication, ensuring accurate data entry and timely follow-ups</li>
+                <li>Delivered professional customer support via Zendesk ticketing system, handling inquiries, escalations, and SLA compliance</li>
+                <li>Conducted market research and lead generation campaigns, building prospect lists and supporting business development</li>
+                <li>Maintained operational records, organized digital filing systems, and prepared documentation for executive review</li>
+                <li>Managed social media scheduling and community engagement to maintain consistent online presence</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-title">Executive Assistant &amp; Operations Support</div>
+            <div class="job-sub">Various Organizations &bull; International &amp; Corporate &bull; 2010 &ndash; 2016</div>
+            <ul>
+                <li>Provided direct support to senior executives, managing complex schedules, communications, and administrative workflows</li>
+                <li>Coordinated meetings, travel arrangements, and documentation across departments and international stakeholders</li>
+                <li>Maintained organized filing systems, operational records, and document templates that streamlined team workflows</li>
+                <li>Supported strategic initiatives through administrative coordination, meeting preparation, and follow-ups</li>
+                <li>Improved executive productivity by proactively managing scheduling conflicts and prioritizing communications</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-title">Customer Support &amp; Contact Center Operations</div>
+            <div class="job-sub">Multinational Organization &bull; Malaysia (Overseas Assignment)</div>
+            <ul>
+                <li>Managed inbound and outbound contact center operations for the Indonesian market from a centralized hub in Malaysia</li>
+                <li>Resolved customer inquiries and technical issues, maintaining high satisfaction through professional communication</li>
+                <li>Managed helpdesk tickets using formal ticketing systems, ensuring SLA compliance and service quality</li>
+                <li>Supported SLA compliance by tracking response times, documenting processes, and identifying improvements</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-title">Sales &amp; Customer Relationship Management</div>
+            <div class="job-sub">Corporate Environment &bull; International &bull; 2003 &ndash; 2010</div>
+            <ul>
+                <li>Managed customer accounts and relationships, supporting account development and retention initiatives</li>
+                <li>Assisted with sales planning, market analysis, and competitive intelligence for strategic decision-making</li>
+                <li>Tracked and managed sales leads through CRM pipeline, ensuring timely follow-ups and conversion</li>
+                <li>Identified growth opportunities through research, reporting, and engagement with existing customer base</li>
+                <li>Supported revenue generation and retention programs through targeted outreach and relationship management</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section>
+    <div class="container">
+        <h2>Services I Deliver</h2>
+        <div class="svc-grid">
+            <div class="svc-card">
+                <h4>Executive &amp; Administrative Support</h4>
+                <ul>
+                    <li>Calendar and email management</li>
+                    <li>Travel planning across time zones</li>
+                    <li>Document preparation and formatting</li>
+                    <li>Data entry and database admin</li>
+                    <li>Meeting coordination with follow-ups</li>
+                    <li>Executive correspondence</li>
+                </ul>
+            </div>
+            <div class="svc-card">
+                <h4>CRM &amp; Customer Support</h4>
+                <ul>
+                    <li>HubSpot CRM admin &amp; pipeline mgmt</li>
+                    <li>Zendesk &amp; Vantive ticketing mgmt</li>
+                    <li>Customer onboarding and retention</li>
+                    <li>Escalation handling</li>
+                    <li>SLA monitoring and compliance</li>
+                    <li>Customer feedback and reporting</li>
+                </ul>
+            </div>
+            <div class="svc-card">
+                <h4>Lead Generation &amp; Research</h4>
+                <ul>
+                    <li>Targeted prospect research</li>
+                    <li>Competitor analysis &amp; intelligence</li>
+                    <li>Contact list building</li>
+                    <li>Lead qualification &amp; enrichment</li>
+                    <li>Data collection and reporting</li>
+                    <li>Sales support coordination</li>
+                </ul>
+            </div>
+            <div class="svc-card">
+                <h4>Operations &amp; Project Coordination</h4>
+                <ul>
+                    <li>Project administration</li>
+                    <li>Vendor communication &amp; mgmt</li>
+                    <li>Workflow documentation</li>
+                    <li>Cross-functional coordination</li>
+                    <li>Operational reporting &amp; KPI tracking</li>
+                    <li>Tender documentation support</li>
+                </ul>
+            </div>
+            <div class="svc-card">
+                <h4>Social Media &amp; Digital Support</h4>
+                <ul>
+                    <li>Content scheduling across platforms</li>
+                    <li>Community engagement &amp; moderation</li>
+                    <li>Content creation and curation</li>
+                    <li>Email marketing campaign support</li>
+                    <li>Social media analytics</li>
+                    <li>Digital asset organization</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY + TESTIMONIALS ===== -->
+<section>
+    <div class="container">
+        <h2>Why Work With Me</h2>
+        <div class="why-grid">
+            <div class="why-item"><h4>20+ Years of Proven Experience</h4><p>Not a beginner. You get a seasoned professional who has seen it all.</p></div>
+            <div class="why-item"><h4>International Business Exposure</h4><p>9 years overseas in multinational environments. I understand cultural nuances and global communication.</p></div>
+            <div class="why-item"><h4>Reliable &amp; Proactive</h4><p>You will never have to chase me for updates. I anticipate needs and flag issues before they become problems.</p></div>
+            <div class="why-item"><h4>Tech-Savvy &amp; Adaptable</h4><p>HubSpot, Zendesk, Vantive, Google Workspace, MS Office. I master the tools you use.</p></div>
+            <div class="why-item"><h4>Detail-Oriented</h4><p>From a misplaced comma to a scheduling conflict, I ensure everything is right.</p></div>
+            <div class="why-item"><h4>Long-Term Partner</h4><p>I want to become a trusted extension of your team, not just a freelancer.</p></div>
+        </div>
+
+        <h2 style="margin-top:30px;">Testimonials</h2>
+        <div class="testi-grid">
+            <div class="testi-card" style="grid-column:1/-1;">
+                <div><span class="stars">&starf;&starf;&starf;&starf;&starf;</span> <span class="rating">5.0 out of 5.0</span></div>
+                <div class="text">&ldquo;It was a pleasure working through this project with Lydia! Her quality of work has been excellent, and she was able to successfully complete the milestones that we set out for her. Her communication skills are also very strong, and she has been very responsive throughout the duration of this project. We would love to work with her again in the future!&rdquo;</div>
+                <div class="source">Upwork &bull; Nov 2, 2018 &ndash; Nov 14, 2018</div>
+            </div>
+            <div class="testi-card">
+                <div><span class="stars">&starf;&starf;&starf;&starf;&starf;</span> <span class="rating">5.0</span></div>
+                <div class="text">&ldquo;Lydia is a great communicator and responds promptly. Most important qualities.&rdquo;</div>
+                <div class="source">Upwork</div>
+            </div>
+            <div class="testi-card">
+                <div><span class="stars">&starf;&starf;&starf;&starf;&starf;</span> <span class="rating">5.0</span></div>
+                <div class="text">&ldquo;Great communication, fast turnaround, knowledgeable. Look forward to working on future projects.&rdquo;</div>
+                <div class="source">Upwork</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRICING + CTA ===== -->
+<section>
+    <div class="container">
+        <h2>Investment</h2>
+        <p style="margin-bottom:14px;color:#555;">Flexible engagement options to match your business needs.</p>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h4>Full-Time (40h/week)</h4>
+                <div class="amount">$1,500 &ndash; $2,500</div>
+                <p>Dedicated support, priority response, full team integration</p>
+            </div>
+            <div class="pricing-card">
+                <h4>Part-Time (20h/week)</h4>
+                <div class="amount">$800 &ndash; $1,500</div>
+                <p>Regular support, scheduled check-ins, focused projects</p>
+            </div>
+            <div class="pricing-card">
+                <h4>Project-Based</h4>
+                <div class="amount" style="font-size:1.1rem;">Negotiable</div>
+                <p>Fixed scope, deliverable-driven, results-focused</p>
+            </div>
+        </div>
+        <p style="font-size:0.8rem;color:#999;margin-bottom:20px;">Rates in USD. Free discovery call included. Negotiable for long-term commitments.</p>
+
+        <div class="cta-box">
+            <h3>READY TO STREAMLINE YOUR OPERATIONS?</h3>
+            <p>Available for full-time remote. Open to a trial period to prove my value.</p>
+            <p>
+                <a href="mailto:lydiahermina.va@gmail.com">lydiahermina.va@gmail.com</a> &nbsp;|&nbsp;
+                <a href="https://linkedin.com/in/lydiamassie-9b4a2a136" target="_blank">linkedin.com/in/lydiamassie-9b4a2a136</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">Lydia Hermina &bull; Virtual Assistant &amp; Executive Support Specialist</div>
+</footer>
+
+</body>
+</html>
